@@ -29,7 +29,7 @@ const Contact = () => {
           <h1 className="text-[1rem] sm:text[1.5rem] md:text-[2rem] font-bold mb-4 whitespace-nowrap ">
             CONTACT
           </h1>
-          <p className="text-[1rem]  md:text-xl font-light md:max-w-3xl sm:max-w-[50rem] max-w-[40rem]  lg:mx-auto lg:px-4 mb-6">
+          <p className="text-[1rem] md:text-xl font-light w-[300px] md:max-w-3xl md:whitespace-nowrap md:relative md:left-[-70px] lg:left-[-100px] lg:mx-auto lg:px-4 mb-6">
             Send me your Questions, Comments and Suggestions!
           </p>
         </div>

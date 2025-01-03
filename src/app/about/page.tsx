@@ -27,8 +27,8 @@ const About = () => {
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black/80 to-black/50"></div>
 
         {/* Text Overlay */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-10 px-6 sm:px-8">
-          <h1 className="text-[1rem] xl:text-[3rem] lg:text-[2.5rem] md:text-[2rem] font-bold leading-snug tracking-wide drop-shadow-lg animate__animated animate__fadeIn w-full  mx-auto">
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-10  ">
+          <h1 className="text-[1rem] xl:text-[3rem] lg:text-[2.5rem] md:text-[2rem] font-bold leading-snug tracking-wide drop-shadow-lg animate__animated animate__fadeIn w-full  mx-auto whitespace-nowrap">
             Meet Your Guiding Stars
           </h1>
           <p className="text-sm md:text-xl font-light mt-4 w-full mx-auto drop-shadow-md animate__animated animate__fadeIn animate__delay-1s">

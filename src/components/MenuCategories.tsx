@@ -19,7 +19,7 @@ const MenuCategories = ({
   ];
 
   return (
-    <div className="  w-[40%] md::w-[70%] xl:w-[100%] mx-auto px-2 mb-8 space-x-4 xl:flex xl:flex-row flex-col gap-y-6 xl:justify-center items-center border-b-2 py-1 text-gray-900 font-semibold font-inter text-[11px] grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5">
+    <div className="  w-[50%] sm:w-[40%] md::w-[70%] xl:w-[100%] mx-auto px-2 mb-8 space-x-4 xl:flex xl:flex-row flex-col gap-y-6 xl:justify-center items-center border-b-2 py-1 text-gray-900 font-semibold font-inter text-[11px] grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5">
       <button
         onClick={() => onSelectCategory(null)}
         className={`xl:ml-4 xl:px-4 xl:py-2 2xl:py-3 2xl:text-[17px] 2xl:px-7 py-1 px-0 rounded-md ${
