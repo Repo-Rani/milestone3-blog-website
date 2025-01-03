@@ -52,7 +52,7 @@ const Hero = () => {
         </p>
 
         {/* Button */}
-        <Link href="/blog">
+        <Link href="/blogs">
           <button className="bg-transparent border-2 border-white text-white lg:py-3 lg:px-6 xsm:py-2 xsm:px-4 xs:py-2 xs:px-3 xs:text-sm md:text-lg xsm:text-base font-semibold rounded-lg hover:bg-white hover:text-black transition duration-300">
             Start Exploring
           </button>
