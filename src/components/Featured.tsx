@@ -66,17 +66,17 @@ const Featured = () => {
               <>
                 <span>
                   {" "}
-                  Whether it's the thrill of adventure or the solace of
+                  Whether its the thrill of adventure or the solace of
                   relaxation, every place has a story to tell. Unearth hidden
                   gems, savor exotic cuisines, and connect with locals whose
-                  warmth and hospitality will touch your soul. The journey isn't
-                  just about reaching new places; it's about the moments that
+                  warmth and hospitality will touch your soul. The journey isnt
+                  just about reaching new places; its about the moments that
                   transform you along the way.
                   <br />
                   Take a deep dive into the mysteries of ancient ruins, the
                   tranquility of crystal-clear beaches, or the vibrant nightlife
                   of global capitals. Let your curiosity guide you to
-                  destinations you've only dreamed of, and make every step an
+                  destinations you have only dreamed of, and make every step an
                   opportunity to create lifelong memories.
                 </span>
               </>

@@ -1,21 +1,14 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { CgClose } from "react-icons/cg";
-import { FaSearch } from "react-icons/fa";
 
 import { navProps } from "../../types/type";
 
 export const MobileNav = ({ showNav, closeNav }: navProps) => {
   const navOpen = showNav ? "translate-x-0" : "translate-x-[-100%]";
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isModelOpen, setIsModelOpen] = useState(false);
-  const [isSignup, setIsSignup] = useState(false);
 
   const handleSearchToggle = () => setIsSearchOpen(!isSearchOpen);
-  const openModel = () => setIsModelOpen(true);
-  const closeModel = () => setIsModelOpen(false);
-  const openSignupModal = () => setIsSignup(true);
-  const closeSignupModal = () => setIsSignup(false);
 
   const routes = [
     { name: "Home", path: "/" },
@@ -49,13 +42,11 @@ export const MobileNav = ({ showNav, closeNav }: navProps) => {
 
             <div className="flex flex-col items-center gap-4 ml-12 mt-4">
               <button
-                onClick={openModel}
                 className="rounded-lg text-[#F2613F] py-[0.2rem] px-2 border border-transparent text-center text-md bg-white transition-all font-semibold shadow-md hover:shadow-lg focus:bg-white focus:shadow-none active:bg-white hover:text-white hover:bg-[#F2613F]"
               >
                 <Link href="/login"> Log In</Link>
               </button>
               <button
-                onClick={openSignupModal}
                 className="rounded-lg text-white py-[0.2rem] px-2 border border-transparent text-center text-md bg-[#F2613F] transition-all font-semibold shadow-md hover:shadow-lg focus:bg-white focus:shadow-none active:bg-white hover:text-[#F2613F] hover:bg-white"
               >
                 <Link href="/signup"> Sign Up</Link>

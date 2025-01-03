@@ -11,8 +11,7 @@ import { IoClose } from "react-icons/io5";
 const Navbar = ({ openNav }: Props) => {
   const [navBg, setnavBg] = useState(true);
   const [isSearchActive, setIsSearchActive] = useState(false);
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const [isSignupOpen, setIsSignupOpen] = useState(false);
+ 
 
   useEffect(() => {
     const handler = () => {
@@ -30,12 +29,10 @@ const Navbar = ({ openNav }: Props) => {
     };
   }, []);
 
-  // Toggle Search Mode
   const handleSearchToggle = () => {
     setIsSearchActive(true);
   };
 
-  // Close Search Mode
   const closeSearchMode = () => {
     setIsSearchActive(false);
   };
@@ -106,13 +103,11 @@ const Navbar = ({ openNav }: Props) => {
               {/* Login and Signup Buttons */}
               <div className="hidden lg:flex items-center space-x-4">
                 <button
-                  onClick={() => setIsLoginOpen(true)}
                   className="rounded-lg text-[#F2613F] py-[0.2rem] px-3 border border-transparent text-center text-lg bg-white transition-all font-semibold shadow-md hover:shadow-lg focus:bg-white focus:shadow-none active:bg-white hover:text-white hover:bg-[#F2613F]"
                 >
                   <Link href="/login"> Login</Link>
                 </button>
                 <button
-                  onClick={() => setIsSignupOpen(true)}
                   className="rounded-lg text-white py-[0.2rem] px-3 border border-transparent text-center text-lg bg-[#F2613F] transition-all font-semibold shadow-md hover:shadow-lg focus:bg-white focus:shadow-none active:bg-white hover:text-[#F2613F] hover:bg-white"
                 >
                   <Link href="/signup"> Sign Up</Link>

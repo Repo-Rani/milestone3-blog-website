@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { CategorySelectionPropTypes } from "../../types/type";
 import { CategorySelectionTypes } from "../../types/type";
