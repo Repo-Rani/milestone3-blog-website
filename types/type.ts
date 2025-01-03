@@ -36,7 +36,7 @@ export interface PaginationPropTypes {
 export interface CategorySelectionTypes {
   name: string;
   bgColor: string;
-  imgSrc: string;
+  imageSrc: string;
  
 }
 export interface CategorySelectionPropTypes {

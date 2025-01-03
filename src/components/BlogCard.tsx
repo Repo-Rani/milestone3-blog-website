@@ -3,6 +3,7 @@ import { FaUser } from "react-icons/fa";
 import Link from "next/link";
 import { BlogCardsPropTypes } from "../../types/type";
 import Image from "next/image";
+
 const BlogCards: React.FC<BlogCardsPropTypes> = ({
   blogs,
   currentPage,
@@ -16,13 +17,14 @@ const BlogCards: React.FC<BlogCardsPropTypes> = ({
     (currentPage - 1) * pageSize,
     currentPage * pageSize
   );
+
   return (
-    <div className="grid xsm:grid-cols-2  grid-cols-1 xl:grid-cols-3 gap-[1rem] w-[95%] mx-auto">
+    <div className="grid xsm:grid-cols-2 grid-cols-1 xl:grid-cols-3 gap-[1rem] w-[95%] mx-auto">
       {paginatedBlogs.map((blog, index) => (
         <Link
           key={index}
           href={`/blog/${blog.id}`}
-          className="p-3 shadow-lg bg-white rounded cursor-pointer"
+          className="group p-3 shadow-lg bg-white rounded cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105"
         >
           <div>
             <Image

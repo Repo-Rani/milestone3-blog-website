@@ -10,12 +10,12 @@ const MenuCategories = ({
   activeCategory,
 }: CategorySelectionPropTypes) => {
   const categories: CategorySelectionTypes[] = [
-    { name: "Destinations", bgColor: "#84c6ea", imgSrc: "/destination.jpg" },
-    { name: "Adventure", bgColor: "#e89fd8", imgSrc: "/adventure.webp" },
-    { name: "Beaches", bgColor: "#9feda1", imgSrc: "/beach.jpg" },
-    { name: "Mountains", bgColor: "#f09b86", imgSrc: "/mountain.avif" },
-    { name: "Travel Tips", bgColor: "#f1bc7a", imgSrc: "/travel.jpg" },
-    { name: "City Guides", bgColor: "#a59ef0", imgSrc: "/city.jpg" },
+    { name: "Destinations", bgColor: "#84c6ea", imageSrc: "/destination.jpg" },
+    { name: "Adventure", bgColor: "#e89fd8",  imageSrc: "/adventure.webp" },
+    { name: "Beaches", bgColor: "#9feda1", imageSrc: "/beach.jpg" },
+    { name: "Mountains", bgColor: "#f09b86", imageSrc: "/mountain.avif" },
+    { name: "Travel Tips", bgColor: "#f1bc7a", imageSrc: "/travel.jpg" },
+    { name: "City Guides", bgColor: "#a59ef0", imageSrc: "/city.jpg" },
   ];
 
   return (
@@ -39,7 +39,7 @@ const MenuCategories = ({
           }}
         >
           <Image
-            src={category.imgSrc}
+            src={category.imageSrc}
             alt={category.name}
             height={20}
             width={20}

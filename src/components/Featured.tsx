@@ -18,24 +18,32 @@ const Featured = () => {
 
       {/* News Channels */}
       <div className="flex justify-center md:mt-0 -mt-8 md:flex-row md:ml-0 xsm:ml-[8rem] sm:ml-[6rem] xs:ml-[4rem] flex-col md:gap-8 gap-0 mb-12">
-        <img
+        <Image
           src="/bbc.png"
           alt="BBC Travel"
+          height={30}
+          width={30}
           className="w-32 h-auto  filter grayscale"
         />
-        <img
+        <Image
           src="/ng.png"
           alt="National Geographic"
+          height={30}
+          width={30}
           className="md:w-32 md:h-24 w-28 h-24 filter grayscale"
         />
-        <img
+        <Image
           src="/lonely_image.png"
           alt="Travel + Leisure"
+          height={30}
+          width={30}
           className="w-32 h-auto  filter grayscale"
         />
-        <img
+        <Image
           src="/nbc.png"
           alt="Conde Nast Traveler"
+          height={30}
+          width={30}
           className="md:w-32 h-auto w-28 mb-8 filter grayscale"
         />
       </div>
