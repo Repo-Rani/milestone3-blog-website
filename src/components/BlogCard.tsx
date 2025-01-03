@@ -3,7 +3,12 @@ import { FaUser } from "react-icons/fa";
 import Link from "next/link";
 import { BlogCardsPropTypes } from "../../types/type";
 import Image from "next/image";
-const BlogCards: React.FC<BlogCardsPropTypes> = ({ blogs, currentPage, selectedCategory, pageSize }) => {
+const BlogCards: React.FC<BlogCardsPropTypes> = ({
+  blogs,
+  currentPage,
+  selectedCategory,
+  pageSize,
+}) => {
   const filteredBlogs = blogs.filter(
     (blog) => !selectedCategory || blog.category === selectedCategory
   );
@@ -12,7 +17,7 @@ const BlogCards: React.FC<BlogCardsPropTypes> = ({ blogs, currentPage, selectedC
     currentPage * pageSize
   );
   return (
-    <div className="grid md:grid-cols-2 sm:grid-cols-2 grid-cols-1 xl:grid-cols-3 gap-[1rem] w-[95%] mx-auto">
+    <div className="grid xsm:grid-cols-2  grid-cols-1 xl:grid-cols-3 gap-[1rem] w-[95%] mx-auto">
       {paginatedBlogs.map((blog, index) => (
         <Link
           key={index}

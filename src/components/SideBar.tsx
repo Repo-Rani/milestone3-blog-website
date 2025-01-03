@@ -22,7 +22,9 @@ const SideBar = () => {
                 key={index}
                 className="mb-2 my-2 border-b-2 border-spacing-56 px-4"
               >
-                <h4 className="xl:text-[13px] text-[12px] font-medium mb-2 2xl:text-[16px]">{blog.title}</h4>
+                <h4 className="xl:text-[13px] text-[12px] font-medium mb-2 2xl:text-[16px]">
+                  {blog.title}
+                </h4>
                 <button className="font-medium xl:text-[12px] text-[11px] inline-flex items-center hover:text-orange-500 underline pb-5 text-black  py-1 px-12 rounded-md 2xl:text-[15px]">
                   Learn More
                   <FaArrowRight className="ml-2 mt-1" />
@@ -42,7 +44,9 @@ const SideBar = () => {
               key={index}
               className="mb-2 my-2 border-b-2 border-spacing-56 px-4"
             >
-              <h4 className="xl:text-[13px] font-medium mb-2 text-[12px] 2xl:text-[16px]">{blog.title}</h4>
+              <h4 className="xl:text-[13px] font-medium mb-2 text-[12px] 2xl:text-[16px]">
+                {blog.title}
+              </h4>
               <button className="font-medium text-[11px] xl:text-[12px] inline-flex items-center hover:text-orange-500 underline pb-5 text-black  py-1 px-12 rounded-md 2xl:text-[15px]">
                 Learn More
                 <FaArrowRight className="ml-2 mt-1" />
@@ -61,8 +65,10 @@ const SideBar = () => {
               key={index}
               className="mb-2 my-2 border-b-2 border-spacing-56 px-4"
             >
-              <h4 className="xl:text-[13px] text-[12px] font-medium mb-2 2xl:text-[16px]">{blog.title}</h4>
-              <button className="font-medium text-[11px] xl:text-[12px]inline-flex items-center hover:text-orange-500 underline pb-5 text-black  py-1 px-12 rounded-md 2xl:text-[15px]" >
+              <h4 className="xl:text-[13px] text-[12px] font-medium mb-2 2xl:text-[16px]">
+                {blog.title}
+              </h4>
+              <button className="font-medium text-[11px] xl:text-[12px]inline-flex items-center hover:text-orange-500 underline pb-5 text-black  py-1 px-12 rounded-md 2xl:text-[15px]">
                 Learn More
                 <FaArrowRight className="ml-2 mt-1" />
               </button>

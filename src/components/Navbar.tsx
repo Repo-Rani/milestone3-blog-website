@@ -7,15 +7,12 @@ import { Props } from "../../types/type";
 import Image from "next/image";
 import { FaSearch } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
-import Login from "./Login";
-import Signup from "./Signup";
 
 const Navbar = ({ openNav }: Props) => {
   const [navBg, setnavBg] = useState(true);
-  const [isSearchActive, setIsSearchActive] = useState(false); 
-  const [isLoginOpen, setIsLoginOpen] = useState(false); 
-  const [isSignupOpen, setIsSignupOpen] = useState(false); 
-  
+  const [isSearchActive, setIsSearchActive] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isSignupOpen, setIsSignupOpen] = useState(false);
 
   useEffect(() => {
     const handler = () => {
@@ -73,7 +70,13 @@ const Navbar = ({ openNav }: Props) => {
           <>
             {/* Logo */}
             <div className="flex items-center text-white space-x-2">
-              <Image src="/logo.png" alt="logo" height={32} width={32} className="h-[25px] w-[25px] md:w-[32px] md:h-[32px] " />
+              <Image
+                src="/logo.png"
+                alt="logo"
+                height={32}
+                width={32}
+                className="h-[25px] w-[25px] md:w-[32px] md:h-[32px] "
+              />
               <div className="text-[18px] md:text-[1.5rem] font-bold italic flex items-center">
                 <span className="md:text-[2rem] text-[1.5rem]">W</span>ander
                 <span className="md:text-[2rem] text-[1.5rem]">V</span>isit
@@ -93,14 +96,12 @@ const Navbar = ({ openNav }: Props) => {
                   <li className="nav_link hover:text-[#F2613F] transition-all duration-200 hover:scale-105">
                     <Link href="/blogs">Blog</Link>
                   </li>
-                 
+
                   <li className="nav_link hover:text-[#F2613F] transition-all duration-200 hover:scale-105">
                     <Link href="/contact">Contact</Link>
                   </li>
                 </ul>
               </div>
-
-             
 
               {/* Login and Signup Buttons */}
               <div className="hidden lg:flex items-center space-x-4">
@@ -108,26 +109,27 @@ const Navbar = ({ openNav }: Props) => {
                   onClick={() => setIsLoginOpen(true)}
                   className="rounded-lg text-[#F2613F] py-[0.2rem] px-3 border border-transparent text-center text-lg bg-white transition-all font-semibold shadow-md hover:shadow-lg focus:bg-white focus:shadow-none active:bg-white hover:text-white hover:bg-[#F2613F]"
                 >
-                  Log in
+                  <Link href="/login"> Login</Link>
                 </button>
                 <button
                   onClick={() => setIsSignupOpen(true)}
                   className="rounded-lg text-white py-[0.2rem] px-3 border border-transparent text-center text-lg bg-[#F2613F] transition-all font-semibold shadow-md hover:shadow-lg focus:bg-white focus:shadow-none active:bg-white hover:text-[#F2613F] hover:bg-white"
                 >
-                  Sign Up
+                  <Link href="/signup"> Sign Up</Link>
                 </button>
               </div>
 
               {/* Login and Signup Modals */}
-              <Login isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
-              <Signup isOpen={isSignupOpen} onClose={() => setIsSignupOpen(false)} />
 
-                 {/* Search Button */}
+              {/* Search Button */}
               <button
                 className="text-black text-lg px-3 py-1 rounded"
                 onClick={handleSearchToggle}
               >
-                <FaSearch className="text-white hover:scale-110 hover:text-[#F2613F] transition-all duration-300 ease-linear" size={28} />
+                <FaSearch
+                  className="text-white hover:scale-110 hover:text-[#F2613F] transition-all duration-300 ease-linear"
+                  size={28}
+                />
               </button>
 
               {/* Burger Menu */}

@@ -6,7 +6,7 @@ import MenuCategories from "./MenuCategories";
 import Pagination from "./Pagination";
 
 const BlogPage = () => {
-  const [blogs, setBlogs] = useState([]); 
+  const [blogs, setBlogs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 15;
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -43,7 +43,7 @@ const BlogPage = () => {
         <MenuCategories
           onSelectCategory={handleCategoryChange}
           selectedCategory={selectedCategory}
-          activeCategory={selectedCategory} 
+          activeCategory={selectedCategory}
         />
       </div>
       <div className="flex flex-col lg:flex-row justify-between ml-[2%] gap-9">

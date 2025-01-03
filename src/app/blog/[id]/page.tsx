@@ -10,7 +10,7 @@ async function fetchBlogData(id: string): Promise<BlogTypes | null> {
   return blogs.find((blog: BlogTypes) => blog.id.toString() === id) || null;
 }
 const BlogDetails = async ({ params }: { params: Promise<{ id: string }> }) => {
-  const { id } = await params; 
+  const { id } = await params;
   const blog = await fetchBlogData(id);
   if (!blog) {
     return <p>Blog not found!</p>;
@@ -28,7 +28,7 @@ const BlogDetails = async ({ params }: { params: Promise<{ id: string }> }) => {
   } = blog;
   return (
     <div className="container mx-auto my-12 p-6 xl:pt-24 pt-14">
-      <div className="md:w-[90%] mx-auto w-[98%]">
+      <div className="md:w-[90%] mx-auto w-[98%]  md:pt-36 pt-24 md:px-0 px-7">
         <h1 className="xl:text-[35px] text-[23px] leading-[25px] xl:leading-[50px] font-bold mb-8 font-inter text-center text-gray-500 xl:w-[80%]  mx-auto md:text-[27px] 2xl:text-[42px]">
           {title}
         </h1>
@@ -36,7 +36,7 @@ const BlogDetails = async ({ params }: { params: Promise<{ id: string }> }) => {
           <Image
             src={image}
             alt={title}
-            height={300} 
+            height={300}
             width={300}
             className="rounded-lg xl:h-[300px] xl:w-[550px] h-[200px] w-[300px] md:h-[230px] md:w-[450px] lg:h-[300px] lg:w-[500px] object-cover shadow-xl"
           />

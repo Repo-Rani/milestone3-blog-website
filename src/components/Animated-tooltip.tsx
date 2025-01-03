@@ -34,7 +34,7 @@ export const AnimatedTooltip = ({
   );
   const handleMouseMove = (event: any) => {
     const halfWidth = event.target.offsetWidth / 2;
-    x.set(event.nativeEvent.offsetX - halfWidth); 
+    x.set(event.nativeEvent.offsetX - halfWidth);
   };
 
   return (

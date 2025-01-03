@@ -1,194 +1,244 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
-import { FaEdit } from "react-icons/fa";
-import { RiDeleteBin6Fill } from "react-icons/ri";
-import { GoHeartFill } from "react-icons/go";
+import { IoMdTrash } from "react-icons/io";
+import { CiEdit } from "react-icons/ci";
+import { AiFillHeart } from "react-icons/ai";
 
+// Define types for Comment and Reply
+interface Reply {
+  id: number;
+  text: string;
+  name: string;
+  date: string;
+}
 
 interface Comment {
-    id: string;
-    name: string;
-    text: string;
-    liked: boolean;
-    likeCount: number;
-  }
+  id: number;
+  text: string;
+  name: string;
+  date: string;
+  likes: number;
+  liked: boolean;
+  replies: Reply[];
+}
 
-const CommentsSection = () => {
+const CommentSection = () => {
+  const [name, setName] = useState<string>("");
   const [comments, setComments] = useState<Comment[]>([]);
-  const [newComment, setNewComment] = useState("");
-  const [userName, setUserName] = useState("");
-  const [editingId, setEditingId] = useState<string | null>(null);
-  const [editText, setEditText] = useState("");
+  const [newComment, setNewComment] = useState<string>("");
+  const [editId, setEditId] = useState<number | null>(null);
+  const [editText, setEditText] = useState<string>("");
+  const [replyId, setReplyId] = useState<number | null>(null);
+  const [replyText, setReplyText] = useState<string>("");
+
   useEffect(() => {
-    const storedComments = localStorage.getItem("comments");
-    if (storedComments) {
-      setComments(JSON.parse(storedComments));
-    }
+    const storedComments = JSON.parse(localStorage.getItem("comments") || "[]");
+    setComments(storedComments);
   }, []);
+
   useEffect(() => {
-    if (comments.length > 0) {
-      localStorage.setItem("comments", JSON.stringify(comments));
-    }
+    localStorage.setItem("comments", JSON.stringify(comments));
   }, [comments]);
-  const handleAddComment = () => {
-    if (newComment.trim() && userName.trim()) {
-      const newCommentObj: Comment = {
-        id: Date.now().toString(),
-        name: userName.trim(),
-        text: newComment.trim(),
-        liked: false,
-        likeCount: 0,
-      };
-      setComments([...comments, newCommentObj]);
-      setNewComment("");
-      setUserName("");
+
+  const handlePostComments = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (name.trim() === "" || newComment.trim() === "") return;
+    const comment: Comment = {
+      id: Date.now(),
+      text: newComment,
+      name,
+      date: new Date().toLocaleString(),
+      likes: 0,
+      liked: false,
+      replies: [],
+    };
+
+    setComments([comment, ...comments]);
+    setName("");
+    setNewComment("");
+  };
+
+  const handleEditComment = (id: number) => {
+    const commentToEdit = comments.find((comment) => comment.id === id);
+    if (commentToEdit) {
+      setEditId(id);
+      setEditText(commentToEdit.text);
     }
   };
-  const handleDeleteComment = (id: string) => {
-    setComments(comments.filter((comment) => comment.id !== id));
-  };
-  const handleEditComment = (id: string, text: string) => {
-    setEditingId(id);
-    setEditText(text);
-  };
-  const handleSaveEdit = () => {
-    if (editingId && editText.trim()) {
-      setComments(
-        comments.map((comment) =>
-          comment.id === editingId ? { ...comment, text: editText } : comment
-        )
-      );
-      setEditingId(null);
-      setEditText("");
-    }
-  };
-  const handleCancelEdit = () => {
-    setEditingId(null);
+
+  const handleUpdateComment = () => {
+    const updatedComments = comments.map((comment) =>
+      comment.id === editId ? { ...comment, text: editText } : comment
+    );
+    setComments(updatedComments);
+    setEditId(null);
     setEditText("");
   };
-  const handleToggleLike = (id: string) => {
-    setComments(
-      comments.map((comment) =>
-        comment.id === id
-          ? {
-              ...comment,
-              liked: !comment.liked,
-              likeCount: comment.liked ? comment.likeCount - 1 : comment.likeCount + 1,
-            }
-          : comment
-      )
-    );
+
+  const handleDeleteComment = (id: number) => {
+    const updatedComments = comments.filter((comment) => comment.id !== id);
+    setComments(updatedComments);
   };
+
+  const handleLikeComment = (id: number) => {
+    const updatedComments = comments.map((comment) =>
+      comment.id === id
+        ? {
+            ...comment,
+            likes: comment.likes + (comment.liked ? -1 : 1),
+            liked: !comment.liked,
+          }
+        : comment
+    );
+    setComments(updatedComments);
+  };
+
+  const handleReply = (id: number) => {
+    setReplyId(id);
+  };
+
+  const handlePostReply = (id: number) => {
+    const updatedComments = comments.map((comment) =>
+      comment.id === id
+        ? {
+            ...comment,
+            replies: [
+              ...comment.replies,
+              {
+                id: Date.now(),
+                text: replyText,
+                name,
+                date: new Date().toLocaleString(),
+              },
+            ],
+          }
+        : comment
+    );
+    setComments(updatedComments);
+    setReplyId(null);
+    setReplyText("");
+  };
+
   return (
-    <>
-      <section className="xl:py-5 relative">
-        <div className="w-full max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
-          <div className="w-full flex-col justify-start items-start lg:gap-14 gap-7 inline-flex">
-            <h2 className="w-full text-gray-900 xl:text-2xl text-[16px] font-bold font-inter leading-normal">
-              Comments
-            </h2>
-            <div className="w-full flex-col justify-start items-start gap-5 flex">
-              <input
-                type="text"
-                className="w-full px-5 border-b-[1px] border-gray-300 placeholder-gray-400 text-gray-900 xl:text-[13px] text-[12px] font-normal leading-7 outline-none "
-                placeholder="Enter your name"
-                value={userName}
-                onChange={(e) => setUserName(e.target.value)}
-              />
-              <textarea
-                className="w-full px-5 border-b-[1px] border-gray-300 placeholder-gray-400 text-gray-900 xl:text-[13px] text-[12px] font-normal outline-none"
-                placeholder="Write your thoughts here..."
-                value={newComment}
-                onChange={(e) => setNewComment(e.target.value)}
-              ></textarea>
-              <button
-                onClick={handleAddComment}
-                className="xl:px-4 xl:py-1 px-3 py-[2px] bg-gray-600 hover:bg-gray-800 transition-all duration-700 ease-in-out rounded-md shadow-[0px_1px_2px_0px_rgba(16,_24,_40,_0.05)] justify-center items-center flex"
-              >
-                <span className="xl:px-2 xl:py-px text-white xl:text-[13px] text-[11px]  font-semibold leading-relaxed">
-                  Post your comment
-                </span>
-              </button>
-            </div>
-            <div className="w-full flex-col justify-start items-start gap-8 flex">
-              {comments.map((comment) => (
-                <div
-                  key={comment.id}
-                  className="w-full pb-6 border-b border-gray-300 justify-start items-start gap-2.5 inline-flex"
-                >
-                  <div className="w-full flex-col justify-start items-start gap-3.5 inline-flex">
-                    <div className="w-full justify-start items-start flex-col flex gap-1">
-                      <div className="w-full justify-between items-start gap-1 inline-flex">
-                        <h5 className="text-gray-900 xl:text-sm text-[14px] font-semibold leading-snug">
-                          {comment.name}
-                        </h5>
-                        <span className="text-right text-gray-500 xl:text-xs text-[11px] font-normal leading-5">
-                          Just now
-                        </span>
-                      </div>
-                      {editingId === comment.id ? (
-                        <>
-                          <textarea
-                            className="w-full border-b-[1px] text-[12px] border-gray-500 outline-none resize-none focus:outline-none text-gray-900"
-                            value={editText}
-                            onChange={(e) => setEditText(e.target.value)}
-                          ></textarea>
-                          <div className="flex gap-2 mt-2">
-                            <button
-                              onClick={handleSaveEdit}
-                              className="px-2 text-[12px] py-[2px] bg-green-500 text-white rounded-md"
-                            >
-                              Save
-                            </button>
-                            <button
-                              onClick={handleCancelEdit}
-                              className="px-2 text-[12px] py-[2px] bg-gray-400 text-white rounded-md"
-                            >
-                              Cancel
-                            </button>
-                          </div>
-                        </>
-                      ) : (
-                        <h5 className="text-gray-800 xl:text-sm text-[12px] font-normal leading-snug">
-                          {comment.text}
-                        </h5>
-                      )}
-                    </div>
-                    <div className="justify-start items-start gap-5 inline-flex">
-                      <button
-                        onClick={() => handleEditComment(comment.id, comment.text)}
-                        className="w-5 h-5 flex items-center justify-center group"
-                      >
-                        <FaEdit className="text-orange-500 group-hover:text-orange-700 transition-all duration-700 ease-in-out" />
-                      </button>
-                      <button
-                        onClick={() => handleToggleLike(comment.id)}
-                        className="w-7 h-7 flex items-center justify-center group mt-[-3px]"
-                      >
-                        <GoHeartFill
-                        height={20} width={20}
-                          className={`${
-                            comment.liked ? "text-red-700" : "text-orange-500"
-                          } group-hover:text-orange-500 transition-all duration-700 ease-in-out `}
-                        />
-                        <span className="text-xs text-gray-600 ml-1">{comment.likeCount}</span>
-                      </button>
-                      <button
-                        onClick={() => handleDeleteComment(comment.id)}
-                        className="w-5 h-5 flex items-center justify-center group"
-                      >
-                        <RiDeleteBin6Fill className="text-orange-500 group-hover:text-orange-700 transition-all duration-700 ease-in-out" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+    <section className="bg-slate-100 dark:bg-gray-900 py-8 lg:py-16 antialiased">
+      <div className="px-4 relative md:left-0  xl:left-0">
+        <h2 className="text-base md:text-lg lg:text-2xl uppercase font-bold text-black/70 dark:text-white">
+          Discussion ({comments.length})
+        </h2>
+        <div className="py-4 flex flex-col">
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Enter your name..."
+            className=" px-4 py-2 mb-2 w-[220px] sm:w-[280px] xsm:w-[330px] lg:w-[600px] md:w-[400px] outline-none border-none bg-white text-[14px] rounded-[3px]"
+          />
+          <textarea
+            value={newComment}
+            onChange={(e) => setNewComment(e.target.value)}
+            placeholder="Write a comment..."
+            className="xsm:w-[330px] px-4 py-4 outline-none w-[220px] sm:w-[280px] lg:w-[600px] md:w-[400px] border-none bg-white text-[14px] rounded-[3px]"
+            style={{ height: "150px" }}
+          />
+          <button
+            onClick={handlePostComments}
+            className="mt-2 px-4 py-2 w-[120px] md:w-[160px] whitespace-nowrap text-white text-[12px] md:text-[14px] bg-[#F2613F] hover:bg-black rounded-[3px]"
+          >
+            Post Comment
+          </button>
         </div>
-      </section>
-    </>
+        {comments.map((comment) => (
+          <div key={comment.id} className="p-4 bg-white rounded-lg shadow mt-4">
+            <div className="flex flex-between flex-col">
+              <div className="flex justify-between items-center">
+                <div>
+                  <h4 className="font-semibold">{comment.name}</h4>
+                  <time className="text-xs text-gray-500">{comment.date}</time>
+                </div>
+                <div className="flex space-x-2">
+                  <button
+                    onClick={() => handleEditComment(comment.id)}
+                    className="text-sm text-blue-500"
+                  >
+                    <CiEdit className="h-5 w-5 text-hoverTextColor hover:scale-125 duration-300 ease-linear hover:text-iconColor" />
+                  </button>
+                  <button
+                    onClick={() => handleDeleteComment(comment.id)}
+                    className="text-sm text-red-500"
+                  >
+                    <IoMdTrash className="h-5 w-5 text-hoverTextColor hover:scale-125 duration-300 ease-linear hover:text-iconColor" />
+                  </button>
+                </div>
+              </div>
+              <div className="border-b-[1px] border-black/10 w-full mx-auto"></div>
+            </div>
+            {editId === comment.id ? (
+              <div className="mt-2">
+                <textarea
+                  value={editText}
+                  onChange={(e) => setEditText(e.target.value)}
+                  className="w-full px-4 py-4 outline-none border-none bg-white text-[14px] rounded-lg"
+                />
+                <button
+                  onClick={handleUpdateComment}
+                  className="mt-2 px-4 py-2 w-[160px] text-white text-[14px] bg-[#F2613F] hover:bg-iconColor rounded-[3px]"
+                >
+                  Update
+                </button>
+              </div>
+            ) : (
+              <p className="mt-2">{comment.text}</p>
+            )}
+            <button
+              onClick={() => handleLikeComment(comment.id)}
+              className="flex items-center text-gray-600 mt-2"
+            >
+              <AiFillHeart
+                className={`h-5 w-5 ${
+                  comment.liked ? "text-red-500" : "text-gray-500"
+                } hover:scale-125 duration-300 ease-linear`}
+              />
+              <span className="ml-1">{comment.likes}</span>
+            </button>
+
+            <button
+              onClick={() => handleReply(comment.id)}
+              className="text-sm text-blue-500 mt-2"
+            >
+              Reply
+            </button>
+            {replyId === comment.id && (
+              <div className="mt-2">
+                <textarea
+                  value={replyText}
+                  onChange={(e) => setReplyText(e.target.value)}
+                  className="w-full px-4 py-4 outline-none border-none bg-white text-[14px] rounded-lg"
+                />
+                <button
+                  onClick={() => handlePostReply(comment.id)}
+                  className="mt-2 px-4 py-2 w-[160px] text-white hover:text-[#F2613F]
+                 text-[14px] bg-[#F2613F] hover:bg-white rounded-[3px]"
+                >
+                  Post Reply
+                </button>
+              </div>
+            )}
+            {comment.replies.length > 0 && (
+              <div className="mt-4 pl-4 border-l-2 border-gray-300">
+                {comment.replies.map((reply) => (
+                  <div key={reply.id} className="mt-2">
+                    <h4 className="font-semibold text-sm">{reply.name}</h4>
+                    <time className="text-xs text-gray-500">{reply.date}</time>
+                    <p className="mt-1 text-sm">{reply.text}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
   );
 };
 
-export default CommentsSection;
+export default CommentSection;

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useState } from "react";
 import Image from "next/image";
 
@@ -53,17 +53,31 @@ const Featured = () => {
 
         <div className="flex-1 flex flex-col gap-5">
           <h1 className="md:text-3xl lg:text-[2rem] xl:text-4xl xsm:text-[1.7rem] text-2xl font-bold italic ml-5">
-            Unveiling Wonders: Explore, Relax, and Discover the Beauty Around You
+            Unveiling Wonders: Explore, Relax, and Discover the Beauty Around
+            You
           </h1>
           <p className="lg:text-xl md:text-lg xsm:text-base text-base font-light ml-5">
-            Embark on a journey that redefines the way you see the world. Picture yourself wandering through tranquil forests, gazing at sunrises over majestic mountains, or losing yourself in the charm of bustling city streets. Each destination offers a blend of culture, history, and unique experiences that create unforgettable memories.
+            Embark on a journey that redefines the way you see the world.
+            Picture yourself wandering through tranquil forests, gazing at
+            sunrises over majestic mountains, or losing yourself in the charm of
+            bustling city streets. Each destination offers a blend of culture,
+            history, and unique experiences that create unforgettable memories.
             {showMore && (
               <>
                 <span>
                   {" "}
-                  Whether it's the thrill of adventure or the solace of relaxation, every place has a story to tell. Unearth hidden gems, savor exotic cuisines, and connect with locals whose warmth and hospitality will touch your soul. The journey isn't just about reaching new places; it's about the moments that transform you along the way.
+                  Whether it's the thrill of adventure or the solace of
+                  relaxation, every place has a story to tell. Unearth hidden
+                  gems, savor exotic cuisines, and connect with locals whose
+                  warmth and hospitality will touch your soul. The journey isn't
+                  just about reaching new places; it's about the moments that
+                  transform you along the way.
                   <br />
-                  Take a deep dive into the mysteries of ancient ruins, the tranquility of crystal-clear beaches, or the vibrant nightlife of global capitals. Let your curiosity guide you to destinations you've only dreamed of, and make every step an opportunity to create lifelong memories.
+                  Take a deep dive into the mysteries of ancient ruins, the
+                  tranquility of crystal-clear beaches, or the vibrant nightlife
+                  of global capitals. Let your curiosity guide you to
+                  destinations you've only dreamed of, and make every step an
+                  opportunity to create lifelong memories.
                 </span>
               </>
             )}
