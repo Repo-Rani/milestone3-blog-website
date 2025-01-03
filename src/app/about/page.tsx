@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import AnimatedTooltipPreview from "@/components/MyTeam";
 
 const About = () => {
   const [showStory, setShowStory] = useState(false);
@@ -53,7 +52,6 @@ const About = () => {
           for you to discover.
         </p>
 
-        <AnimatedTooltipPreview />
 
         {/* My Story Button */}
         <button
