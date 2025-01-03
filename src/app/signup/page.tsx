@@ -8,9 +8,9 @@ const SignUp = () => {
 
   return (
     <>
-      <section className="relative top-[120px] h-[1000px]">
-        <div className="w-[300px] md:w-[424px] h-[624px] absolute top-[510px] md:top-[100px] md:left-[530px] left-[50px] shadow-2xl shadow-[#E0E0E0]">
-          <h1 className="text-[18px] md:text-[20px] font-bold font-helvetica relative top-[35px] left-[35px] text-[#333333]">
+      <section className="relative md:top-[120px] h-[750px] md:h-[1000px]">
+        <div className="w-[300px] md:w-[424px] h-[624px] absolute top-[70px] md:top-[100px] md:left-[530px] xsm:left-[65px] sm:left-[50px] left-[30px] shadow-2xl shadow-[#E0E0E0]">
+          <h1 className="text-[18px] md:text-[20px] w-[100px] font-bold font-helvetica relative top-[35px] left-[35px] text-[#333333]">
             Sign Up
           </h1>
           <div className="relative top-[-35px]">
@@ -18,7 +18,7 @@ const SignUp = () => {
               <FaUser className="md:h-[24px] md:w-[24px] w-[20px] h-[20px] text-black" />
               <input
                 type="text"
-                className="border-none outline-none text-[12px] md:text-[16px] font-normal text-[#4F4F4F] font-sans"
+                className="border-none outline-none text-[12px] bg-transparent md:text-[16px] font-normal text-[#4F4F4F] font-sans"
                 placeholder="Name"
               />
             </div>
@@ -26,7 +26,7 @@ const SignUp = () => {
               <FaEnvelope className="md:h-[24px] md:w-[24px] w-[20px] h-[20px]" />
               <input
                 type="text"
-                className="border-none outline-none text-[12px] md:text-[16px] font-normal text-[#4F4F4F] font-sans"
+                className="border-none outline-none  bg-transparent text-[12px] md:text-[16px] font-normal text-[#4F4F4F] font-sans"
                 placeholder="Email"
               />
             </div>
@@ -34,19 +34,19 @@ const SignUp = () => {
               <FaLock className="md:h-[24px] md:w-[24px] w-[20px] h-[20px]" />
               <input
                 type="password"
-                className="border-none outline-none text-[12px] md:text-[16px] font-normal text-[#4F4F4F] font-halvetica"
+                className="border-none outline-none bg-transparent text-[12px] md:text-[16px] font-normal text-[#4F4F4F] font-halvetica"
                 placeholder="Password"
               />
             </div>
-            <div className="h-[22px] flex justify-start items-center gap-[10px] pl-[14px] relative top-[153px] left-[35px] whitespace-nowrap">
+            <div className="h-[22px] flex justify-start items-center gap-[10px] pl-[14px] relative top-[153px] left-[35px] w-[100px] whitespace-nowrap">
               <div className="w-[20px] h-[20px] flex items-center justify-center">
                 <input
                   type="checkbox"
-                  className="w-[18px] md:w-[20px] h-[18px] md:h-[20px] cursor-pointer border border-[#735555] rounded-sm bg-white checked:bg-[#735555] checked:border-[#735555] focus:outline-none relative"
+                  className="w-[18px] md:w-[20px] h-[18px] bg-transparent md:h-[20px] cursor-pointer border border-[#735555] rounded-sm bg-white checked:bg-[#735555] checked:border-[#735555] focus:outline-none relative"
                 />
                 <span className="absolute w-[6px] md:w-[10px] h-[6px] md:h-[10px] border-white border-2 border-t-0 border-l-0 transform rotate-45 hidden checked:block"></span>
               </div>
-              <p className="text-[12px] md:text-[14px] font-helvetica font-normal text-[#333333]">
+              <p className="text-[12px] md:text-[14px] font-helvetica font-normal  text-[#333333]">
                 Remember me?
               </p>
             </div>

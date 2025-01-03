@@ -6,10 +6,6 @@ import { navProps } from "../../types/type";
 
 export const MobileNav = ({ showNav, closeNav }: navProps) => {
   const navOpen = showNav ? "translate-x-0" : "translate-x-[-100%]";
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-
-  const handleSearchToggle = () => setIsSearchOpen(!isSearchOpen);
-
   const routes = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
