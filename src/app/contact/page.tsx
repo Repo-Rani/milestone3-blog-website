@@ -115,7 +115,7 @@ const Contact = () => {
           Subscribe to Our Newsletter
         </h2>
         <p className="md:text-base text-sm w-[70%] mx-auto  text-gray-400">
-          Stay updated with the latest news, trends, and special offers. Don't
+          Stay updated with the latest news, trends, and special offers. Dont
           miss out on our exciting updates.
         </p>
         <div className="mt-12 flex items-center overflow-hidden bg-gray-50 rounded-md md:max-w-xl sm:max-w-[20rem] max-w-[18rem] mx-auto">

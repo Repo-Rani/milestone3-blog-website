@@ -101,7 +101,7 @@ const About = () => {
             <div className="border-b-2 border-dashed border-[#F2613F] my-4"></div>
             <p className="text-base md:text-lg text-gray-700 leading-relaxed">
               Today, my story continues to unfold, and I invite you to be a part
-              of it. Let's explore the world together, one journey at a time.
+              of it. Lets explore the world together, one journey at a time.
             </p>
           </div>
         )}

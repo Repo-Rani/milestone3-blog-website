@@ -45,12 +45,12 @@ const FaqContact = () => {
               Can I quote you as an expert source?
             </h2>
             <p className="text-gray-500 md:text-lg text-sm md:text-left text-center mt-[0.25rem]">
-              Sure, I'm generally happy to provide a quote as an expert source
+              Sure, I am generally happy to provide a quote as an expert source
               in your article for topics like travel, hiking, gear, culture, and
               more.
             </p>
             <p className="text-gray-500 md:text-lg text-sm md:text-left text-center mt-[1rem]">
-              I've been referenced or featured by many media outlets including
+              I have been referenced or featured by many media outlets including
               TIME, USA Today, NBC News, BBC Travel, Travel+Leisure, and lots of
               international tourism bureaus.
             </p>
@@ -134,9 +134,9 @@ const FaqContact = () => {
               Whats your favorite place to travel?
             </h2>
             <p className="text-gray-500 md:text-lg text-sm md:text-left text-center mt-[0.25rem]">
-              Bali , of course! That's why it's our second home between travels.
-              Bali is budget friendly, warm, and there's so much to see and do.
-              I also love the people of Bali and that's why I married one of
+              Bali , of course! Thats why its our second home between travels.
+              Bali is budget friendly, warm, and theres so much to see and do.
+              I also love the people of Bali and thats why I married one of
               them. 🙂
             </p>
             <p className="text-gray-500 md:text-lg text-sm md:text-left text-center mt-[1rem]">
