@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import AnimatedTooltipPreview from "@/components/MyTeam";
 
 
 const About = () => {
@@ -54,9 +53,7 @@ const About = () => {
           for you to discover.
         </p>
 
-<div>
-  <AnimatedTooltipPreview/>
-</div>
+
         {/* My Story Button */}
         <button
           onClick={toggleStory}
@@ -105,8 +102,36 @@ const About = () => {
               of it. Lets explore the world together, one journey at a time.
             </p>
           </div>
+
+
+
         )}
       </div>
+
+
+      <div>
+
+<div className="mt-16 bg-gradient-to-r from-[#F2613F] to-[#FF814A] text-white p-8 rounded-lg shadow-lg">
+  <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">
+    Our Achievements
+  </h2>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div className="text-center">
+      <div className="text-4xl font-bold">50+</div>
+      <p className="text-sm">Destinations Explored</p>
+    </div>
+    <div className="text-center">
+      <div className="text-4xl font-bold">10K+</div>
+      <p className="text-sm">Happy Clients</p>
+    </div>
+    <div className="text-center">
+      <div className="text-4xl font-bold">100+</div>
+      <p className="text-sm">Stories Shared</p>
+    </div>
+  </div>
+</div>
+
+</div>
     </section>
   );
 };
