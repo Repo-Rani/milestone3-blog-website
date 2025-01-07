@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import AnimatedTooltipPreview from "@/components/MyTeam";
+
 
 const About = () => {
   const [showStory, setShowStory] = useState(false);
@@ -52,7 +54,9 @@ const About = () => {
           for you to discover.
         </p>
 
-
+<div>
+  <AnimatedTooltipPreview/>
+</div>
         {/* My Story Button */}
         <button
           onClick={toggleStory}
@@ -61,13 +65,12 @@ const About = () => {
           {showStory ? "Hide My Story" : "Read My Story"}
         </button>
 
-        {/* My Story Section */}
         {showStory && (
           <div className="mt-10 bg-gradient-to-r from-[#F8E1D4] via-[#FFF2E4] to-[#F8E1D4] p-8 rounded-lg shadow-xl text-left max-w-4xl mx-auto relative overflow-hidden animate__animated animate__fadeIn animate__delay-3s">
             <div className="flex items-center justify-center mb-8">
               <div className="w-1/3 relative">
                 <Image
-                  src="/stories.jpg" // Replace with your image path
+                  src="/stories.jpg" 
                   alt="My Story Image"
                   layout="intrinsic"
                   width={300}
