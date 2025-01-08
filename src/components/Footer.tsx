@@ -104,7 +104,7 @@ const Footer: React.FC = () => {
         </div>
         <div className="text-center">
           <p className=" text-sm text-white xxl:text-lg xl:text-lg ">
-            &copy; 2024 LovelyPerfume | All rights reserved.
+            &copy; 2024 WanderVisit | All rights reserved.
           </p>
         </div>
       </div>
