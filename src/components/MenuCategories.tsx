@@ -19,10 +19,10 @@ const MenuCategories = ({
   ];
 
   return (
-    <div className="flex flex-wrap justify-center items-center w-full px-4 mb-8 gap-4 border-b-2 py-4 text-gray-900 font-semibold font-inter text-sm">
+    <div className="flex flex-wrap justify-center items-center w-full px-4 mb-8 gap-4 border-b-2 py-4 text-gray-800 font-medium font-inter text-[10px]">
       <button
         onClick={() => onSelectCategory(null)}
-        className={`py-2 px-4 rounded-md text-xs sm:text-sm md:text-base  ${
+        className={`py-2 px-4 rounded-md text-[10px] sm:text-sm md:text-[14px]  ${
           activeCategory ? "" : "active-button"
         }`}
         style={{ backgroundColor: "#E0E0E0" }}
@@ -33,7 +33,7 @@ const MenuCategories = ({
         <button
           key={index}
           onClick={() => onSelectCategory(category.name)}
-          className="flex items-center justify-center py-1 px-2 rounded-md text-xs sm:text-sm md:text-base lg:text-lg"
+          className="flex items-center justify-center py-1 px-2 rounded-md text-[10px]  md:text-[14px] lg:text-[16px]"
           style={{
             backgroundColor: category.bgColor,
           }}

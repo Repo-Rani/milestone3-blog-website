@@ -9,7 +9,7 @@ const SignUp = () => {
   return (
     <>
       <section className="relative md:top-[120px] h-[750px] md:h-[1000px]">
-        <div className="w-[300px] md:w-[424px] h-[624px] absolute top-[70px] md:top-[100px] md:left-[530px] xsm:left-[65px] sm:left-[50px] left-[30px] shadow-2xl shadow-[#E0E0E0]">
+        <div className="w-[300px] md:w-[424px] h-[624px] absolute top-[70px] md:top-[100px] md:left-[530px] xsm:left-[65px] sm:left-[50px] left-[30px]  border-[1px] border-gray-400 shadow-2xl shadow-[#E0E0E0]">
           <h1 className="text-[18px] md:text-[20px] w-[100px] font-bold font-helvetica relative top-[35px] left-[35px] text-[#333333]">
             Sign Up
           </h1>

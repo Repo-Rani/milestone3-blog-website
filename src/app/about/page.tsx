@@ -54,6 +54,39 @@ const About = () => {
         </p>
 
 
+        <div className="mt-14 bg-transparent p-6  ">
+  <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 text-gray-700">
+    Meet Our Team
+  </h2>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {[
+            { name: "Diana Smith", role: "Team Leader", img: "/ii3.jpg" },
+
+      { name: "John Doe", role: "Photographer", img: "/I1.jpg" },
+      { name: "Jane Smith", role: "Content Creator", img: "/I2.jpg" },
+      { name: "Emily Brown", role: "Travel Planner", img: "/I4.jpg" },
+      { name: "Alley Brown", role: "Senior Travel Consultant", img: "/I5.avif" },
+      { name: "parganza Brown", role: "Adventure Specialist", img: "/I6.jpg" },
+
+
+    ].map((member, index) => (
+      <div key={index} className="text-center">
+        <Image
+          src={member.img}
+          alt={member.name}
+          width={150}
+          height={150}
+          className="rounded-full mx-auto shadow-lg"
+        />
+        <h3 className="text-lg font-bold mt-4">{member.name}</h3>
+        <p className="text-sm text-gray-600">{member.role}</p>
+      </div>
+    ))}
+  </div>
+</div>
+
+
+
         {/* My Story Button */}
         <button
           onClick={toggleStory}
@@ -108,10 +141,11 @@ const About = () => {
         )}
       </div>
 
+     
 
       <div>
 
-<div className="mt-16 bg-gradient-to-r from-[#F2613F] to-[#FF814A] text-white p-8 rounded-lg shadow-lg">
+<div className="mt-16 bg-gradient-to-r from-[#F2613F] to-[#FF814A] text-white p-8 rounded-lg shadow-lg relative mb-[-50px]">
   <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">
     Our Achievements
   </h2>
